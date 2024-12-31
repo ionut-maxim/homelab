@@ -23,36 +23,37 @@ spec:
       retries: 3
   values:
     fullnameOverride: *app
-    provider: webhook
-    webhook:
-      image:
-          repository: ghcr.io/kashalls/external-dns-unifi-webhook
-          tag: v0.3.4@sha256:28dc00c7a21f9571d43181fcc0dd3de59e291741f27bc075d7e06378876b2974
-      env:
-        - name: UNIFI_HOST
-          value: https://10.20.30.1
-        - name: UNIFI_USER
-          valueFrom:
-            secretKeyRef:
-              name: &secret external-dns-unifi-secret
-              key: username
-        - name: UNIFI_PASS
-          valueFrom:
-            secretKeyRef:
-              name: *secret
-              key: password
-      livenessProbe:
-        httpGet:
-          path: /healthz
-          port: http-webhook
-        initialDelaySeconds: 10
-        timeoutSeconds: 5
-      readinessProbe:
-        httpGet:
-          path: /readyz
-          port: http-webhook
-        initialDelaySeconds: 10
-        timeoutSeconds: 5
+    provider:
+      name: webhook
+      webhook:
+        image:
+            repository: ghcr.io/kashalls/external-dns-unifi-webhook
+            tag: v0.3.4@sha256:28dc00c7a21f9571d43181fcc0dd3de59e291741f27bc075d7e06378876b2974
+        env:
+          - name: UNIFI_HOST
+            value: https://10.20.30.1
+          - name: UNIFI_USER
+            valueFrom:
+              secretKeyRef:
+                name: &secret external-dns-unifi-secret
+                key: username
+          - name: UNIFI_PASS
+            valueFrom:
+              secretKeyRef:
+                name: *secret
+                key: password
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: http-webhook
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: http-webhook
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
     extraArgs:
       - --ignore-ingress-tls-spec
       - --ingress-class=internal
