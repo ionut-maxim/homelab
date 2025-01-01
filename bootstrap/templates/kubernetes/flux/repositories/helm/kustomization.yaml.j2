@@ -12,8 +12,11 @@ resources:
   - ./prometheus-community.yaml
   - ./spegel.yaml
   - ./stakater.yaml
+  - ./intel.yaml
+  - ./grafana.yaml
+  - ./csi-driver-nfs.yaml
+  - ./cloudnative-pg.yaml
   #% if bootstrap_cloudflare.enabled %#
   - ./external-dns.yaml
   - ./ingress-nginx.yaml
-  - ./k8s-gateway.yaml
   #% endif %#
