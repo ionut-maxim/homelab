@@ -1,0 +1,7 @@
+name: network
+description: Pulumi project to handle Unifi network IaC
+runtime: go
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: go

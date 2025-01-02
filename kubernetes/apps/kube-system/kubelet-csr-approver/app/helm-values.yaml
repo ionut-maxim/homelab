@@ -1,3 +1,0 @@
----
-providerRegex: ^(node02|node03)$
-bypassDnsResolution: true
