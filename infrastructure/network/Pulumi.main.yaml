@@ -1,0 +1,6 @@
+config:
+  unifi:username: pulumi
+  unifi:password:
+    secure: AAABANLuNGmus7zayWPDsuye+yNyxZrXXC6yRHdLUpU7oaRtl/EQAUFkUGUVHz8Z
+  unifi:api_url: https://10.20.30.1
+  unifi:allowInsecure: "true"

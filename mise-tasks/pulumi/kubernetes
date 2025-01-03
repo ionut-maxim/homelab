@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#MISE description="Build the CLI"
+#MISE dir="{{config_root}}/infrastructure/kubernetes"
+#USAGE cmd "up" help
+
+case "$1" in
+  "up")
+    pulumi up ;;
+   "down")
+    pulumi down ;;
+esac
