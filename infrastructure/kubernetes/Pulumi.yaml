@@ -1,7 +1,10 @@
 name: kubernetes
-description: Pulumi project to handle kubernetes cluster lifecycle using Talos
-runtime: go
+description: Create/Update Kubernetes cluster using Pulumi
+runtime:
+  name: nodejs
+  options:
+    packagemanager: pnpm
 config:
   pulumi:tags:
     value:
-      pulumi:template: go
+      pulumi:template: typescript

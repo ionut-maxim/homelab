@@ -1,5 +1,16 @@
+[env]
+KUBECONFIG = "{{config_root}}/kubeconfig"
+TALOSCONFIG = "{{config_root}}/talosconfig"
+
 [tools]
 pulumi = "latest"
 go = "latest"
 "cargo:minijinja-cli" = "latest"
 talosctl = "latest"
+task = "latest"
+age = "latest"
+sops = "latest"
+pnpm = "latest"
+node = "latest"
+kubectl = "latest"
+usage = "latest"
